@@ -1,4 +1,4 @@
-<h1>interpolation </h1>
+<!--<h1>interpolation </h1>
 <p>{{name}}</p>
 <div class="galerie">
   <h2>Galerie</h2>
@@ -10,7 +10,7 @@
 </div>
 
 
-<!--Event binding!-->
+&lt;!&ndash;Event binding!&ndash;&gt;
 <button (click)="onClick()">Cliquer</button>
 
 <div class="container">
@@ -45,7 +45,7 @@
       </select>
     </div>
   </div>
-  <!-- Aperçu en temps réel -->
+  &lt;!&ndash; Aperçu en temps réel &ndash;&gt;
   <div class="apercu" [class]="'theme-' + profil.theme">
     <h2>Aperçu du profil</h2>
     <div class="avatar">{{ getInitiales() }}</div>
@@ -55,4 +55,6 @@
     <p>{{ profil.biographie || 'Aucune biographie renseignée' }}</p>
     <p>Thème : {{ profil.theme }}</p>
   </div>
-</div>
+</div>-->
+<!--<app-directives></app-directives>-->
+<app-pipe-exemple></app-pipe-exemple>

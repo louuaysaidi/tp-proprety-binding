@@ -1,0 +1,15 @@
+<p *ngIf="isVisible">Bonjour Angular</p>
+<button (click)="toggleButton1()">Afficher / Cacher</button>
+<ul>
+  <li *ngFor="let item of items">
+    {{ item }}
+  </li>
+</ul>
+<p [ngClass]="{active: isActive}">
+  Texte dynamique
+</p>
+<button (click)="toggleButton2()">Changer style</button>
+<p [ngStyle]="{'color': color}">
+  Texte coloré
+</p>
+<button (click)="changeColor()">Changer couleur</button>

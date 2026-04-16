@@ -2,11 +2,15 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {FirstComponent} from './first-component/first-component';
 import {FormsModule} from '@angular/forms';
+import {Directives} from './directives/directives';
+import {PipeExemple} from './pipe-exemple/pipe-exemple';
 
 @Component({
   selector: 'app-root',
   imports: [
-    FormsModule
+    FormsModule,
+    Directives,
+    PipeExemple
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
