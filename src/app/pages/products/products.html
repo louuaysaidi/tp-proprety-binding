@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Nos Produits</h1>
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of products">
+      <h3>{{ product.name }}</h3>
+      <p>Prix : {{ product.price }} TND</p>
+      <a [routerLink]="['/products', product.id]" class="btn">Voir détails</a>
+    </div>
+  </div>
+</div>

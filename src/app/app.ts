@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {FirstComponent} from './first-component/first-component';
 import {FormsModule} from '@angular/forms';
 import {Directives} from './directives/directives';
@@ -9,8 +9,9 @@ import {PipeExemple} from './pipe-exemple/pipe-exemple';
   selector: 'app-root',
   imports: [
     FormsModule,
-    Directives,
-    PipeExemple
+    RouterOutlet,
+    RouterLinkActive,
+    RouterLink
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

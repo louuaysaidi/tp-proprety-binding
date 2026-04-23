@@ -1,0 +1,27 @@
+<div class="container" *ngIf="product">
+  <button (click)="goBack()" class="btn-back">← Retour aux produits</button>
+
+  <div class="product-detail">
+    <h1>{{ product.name }}</h1>
+
+    <div class="detail-section">
+      <h2>Informations</h2>
+      <p><strong>ID:</strong> {{ product.id }}</p>
+      <p><strong>Prix:</strong> {{ product.price }} TND</p>
+      <p><strong>Stock:</strong> {{ product.stock }} unités</p>
+    </div>
+
+    <div class="detail-section">
+      <h2>Description</h2>
+      <p>{{ product.description }}</p>
+    </div>
+
+    <button class="btn">Ajouter au panier</button>
+  </div>
+</div>
+
+<div class="container" *ngIf="!product">
+  <h1>Produit introuvable</h1>
+  <p>Le produit demandé n'existe pas.</p>
+  <a routerLink="/products" class="btn">Retour aux produits</a>
+</div>
