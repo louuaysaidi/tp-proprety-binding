@@ -1,0 +1,13 @@
+<h2>Liste des utilisateurs (Tableau local)</h2>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+  </tr>
+</table>

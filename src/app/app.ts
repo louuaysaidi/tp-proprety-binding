@@ -4,6 +4,7 @@ import {FirstComponent} from './first-component/first-component';
 import {FormsModule} from '@angular/forms';
 import {Directives} from './directives/directives';
 import {PipeExemple} from './pipe-exemple/pipe-exemple';
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import {PipeExemple} from './pipe-exemple/pipe-exemple';
     FormsModule,
     RouterOutlet,
     RouterLinkActive,
-    RouterLink
+    RouterLink,
+    HttpClientModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

@@ -6,6 +6,7 @@ import {Contact} from './pages/contact/contact';
 import {ProductDetail} from './pages/product-detail/product-detail';
 import {NotFound} from './pages/not-found/not-found';
 import {Products} from './pages/products/products';
+import {UserList} from './components/user-list/user-list';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -18,6 +19,7 @@ export const routes: Routes = [
 // /products
   { path: 'products/:id', component: ProductDetail }, // /products/1
   { path: '404', component: NotFound },
+  { path: 'users', component: UserList },
 // Page 404
   { path: '**', redirectTo: '/404' }
 // Redirection wildcard
