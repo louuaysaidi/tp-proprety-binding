@@ -1,19 +1,20 @@
 import { Component, signal } from '@angular/core';
-import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {FirstComponent} from './first-component/first-component';
 import {FormsModule} from '@angular/forms';
 import {Directives} from './directives/directives';
 import {PipeExemple} from './pipe-exemple/pipe-exemple';
-import {HttpClientModule} from '@angular/common/http';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
     FormsModule,
     RouterOutlet,
     RouterLinkActive,
     RouterLink,
-    HttpClientModule
+    CommonModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -31,6 +32,22 @@ export class App {
   ];
   imageSelectionnee = this.images[0];
   boutonDesactive = true;
+
+  constructor(private router: Router) {}
+
+  isLoggedIn(): boolean {
+    return localStorage.getItem('token') !== null;
+  }
+
+  getUsername(): string {
+    return localStorage.getItem('username') || '';
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    this.router.navigate(['/login']);
+  }
 
   onClick() {
     window.alert("test");
@@ -50,4 +67,7 @@ export class App {
   }
 
 }
+
+
+
 

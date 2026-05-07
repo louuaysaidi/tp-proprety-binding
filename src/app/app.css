@@ -45,6 +45,30 @@
   font-weight: bold;
 }
 
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+
 /* Main content */
 main {
   min-height: calc(100vh - 200px);

@@ -7,22 +7,57 @@ import {ProductDetail} from './pages/product-detail/product-detail';
 import {NotFound} from './pages/not-found/not-found';
 import {Products} from './pages/products/products';
 import {UserList} from './components/user-list/user-list';
+import {AuthGuard} from './guards/auth-guard';
+import { Login } from './pages/login/login';
+import { Dashboard } from './pages/dashboard/dashboard';
 
 export const routes: Routes = [
   { path: '', component: Home },
-// Route par défaut
-  { path: 'about', component: About },
-// /about
-  { path: 'contact', component: Contact },
-// /contact
-  { path: 'products', component: Products },
-// /products
-  { path: 'products/:id', component: ProductDetail }, // /products/1
+  // Route par défaut (public)
+  {
+    path: 'login',
+    component: Login
+  },
+  // Login (public)
+  {
+    path: 'dashboard',
+    component: Dashboard,
+    canActivate: [AuthGuard]
+  },
+  // Protected
+  {
+    path: 'about',
+    component: About,
+    canActivate: [AuthGuard]
+  },
+  // Protected
+  {
+    path: 'contact',
+    component: Contact,
+    canActivate: [AuthGuard]
+  },
+  // Protected
+  {
+    path: 'products',
+    component: Products,
+    canActivate: [AuthGuard]
+  },
+  // Protected
+  {
+    path: 'products/:id',
+    component: ProductDetail,
+    canActivate: [AuthGuard]
+  },
+  // Protected
+  {
+    path: 'users',
+    component: UserList,
+    canActivate: [AuthGuard]
+  },
+  // Protected
   { path: '404', component: NotFound },
-  { path: 'users', component: UserList },
-// Page 404
   { path: '**', redirectTo: '/404' }
-// Redirection wildcard
+  // Redirection wildcard
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

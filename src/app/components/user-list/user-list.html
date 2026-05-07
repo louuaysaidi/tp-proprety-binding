@@ -1,13 +1,40 @@
-<h2>Liste des utilisateurs (Tableau local)</h2>
-<table border="1">
-  <tr>
-    <th>ID</th>
-    <th>Nom</th>
-    <th>Email</th>
-  </tr>
-  <tr *ngFor="let user of users">
-    <td>{{ user.id }}</td>
-    <td>{{ user.name }}</td>
-    <td>{{ user.email }}</td>
-  </tr>
-</table>
+<div style="padding: 20px;">
+  <h2>Liste des utilisateurs (API JSONPlaceholder)</h2>
+
+  <div *ngIf="isLoading" style="color: blue; padding: 20px; background-color: #e3f2fd; border: 1px solid blue; border-radius: 4px; margin-bottom: 20px;">
+    <p>⏳ Chargement des utilisateurs...</p>
+  </div>
+
+  <div *ngIf="errorMessage && !isLoading" style="color: #d32f2f; padding: 20px; background-color: #ffebee; border: 1px solid #d32f2f; border-radius: 4px; margin-bottom: 20px;">
+    <p><strong>❌ Erreur:</strong> {{ errorMessage }}</p>
+    <p style="font-size: 12px; margin-top: 10px;">Les données de test ont été chargées à la place.</p>
+  </div>
+
+  <p style="font-weight: bold; color: #333;">
+    Total d'utilisateurs: <span style="color: #4CAF50; font-size: 18px;">{{ users.length }}</span>
+  </p>
+
+  <table border="1" *ngIf="users.length > 0" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background-color: #4CAF50; color: white;">
+        <th style="padding: 12px; text-align: left;">ID</th>
+        <th style="padding: 12px; text-align: left;">Nom</th>
+        <th style="padding: 12px; text-align: left;">Email</th>
+        <th style="padding: 12px; text-align: left;">Téléphone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" style="border-bottom: 1px solid #ddd;">
+        <td style="padding: 12px;">{{ user.id }}</td>
+        <td style="padding: 12px;">{{ user.name }}</td>
+        <td style="padding: 12px;">{{ user.email }}</td>
+        <td style="padding: 12px;">{{ user.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="users.length === 0 && !isLoading && !errorMessage" style="color: #666; padding: 20px; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px;">
+    <p>ℹ️ Aucun utilisateur à afficher.</p>
+  </div>
+</div>
+
